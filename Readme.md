@@ -22,8 +22,8 @@ Built as a learning reference for anyone getting started with MCP server develop
 
 ```bash
 # Clone the project
-git clone https://github.com/your-username/mcp-calculator.git
-cd mcp-calculator
+git clone https://github.com/prakharsharma13/Calculator-MCP
+cd calculator-mcp
 
 # Install dependencies
 npm install
@@ -116,10 +116,10 @@ mcp-calculator/
 
 1. Open the Claude Desktop config file:
 
-   | OS | Path |
-   |----|------|
-   | macOS | `~/Library/Application Support/Claude/claude_desktop_config.json` |
-   | Windows | `%APPDATA%\Claude\claude_desktop_config.json` |
+   | OS      | Path                                                              |
+   | ------- | ----------------------------------------------------------------- |
+   | macOS   | `~/Library/Application Support/Claude/claude_desktop_config.json` |
+   | Windows | `%APPDATA%\Claude\claude_desktop_config.json`                     |
 
 2. Add the server entry:
 
@@ -136,7 +136,7 @@ mcp-calculator/
 
 3. Restart Claude Desktop. A 🔨 icon confirms the tools are loaded.
 
-4. Try asking: *"What is 42 + 58?"* or *"Multiply 7 by 13"*
+4. Try asking: _"What is 42 + 58?"_ or _"Multiply 7 by 13"_
 
 ### Test with MCP Inspector
 
@@ -158,21 +158,21 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
 
 ### Tools
 
-| Tool | Description | Parameters |
-|------|-------------|------------|
-| `add` | Add two numbers | `a: number`, `b: number` |
+| Tool       | Description          | Parameters               |
+| ---------- | -------------------- | ------------------------ |
+| `add`      | Add two numbers      | `a: number`, `b: number` |
 | `multiply` | Multiply two numbers | `a: number`, `b: number` |
 
 ### Resources
 
-| URI | Description |
-|-----|-------------|
+| URI                 | Description                                                   |
+| ------------------- | ------------------------------------------------------------- |
 | `calculator://help` | Plain-text help document listing available tools and examples |
 
 ### Prompts
 
-| Prompt | Description | Arguments |
-|--------|-------------|-----------|
+| Prompt           | Description                      | Arguments         |
+| ---------------- | -------------------------------- | ----------------- |
 | `math-assistant` | Step-by-step math problem solver | `problem: string` |
 
 ## Key Concepts
@@ -195,10 +195,8 @@ All tool handlers return a standard content array:
 
 ```typescript
 return {
-  content: [
-    { type: "text", text: "Result here" }
-  ],
-  isError: false  // optional, set true on failure
+  content: [{ type: "text", text: "Result here" }],
+  isError: false, // optional, set true on failure
 };
 ```
 
@@ -224,7 +222,7 @@ server.tool(
     return {
       content: [{ type: "text", text: `${a} ÷ ${b} = ${a / b}` }],
     };
-  }
+  },
 );
 ```
 
